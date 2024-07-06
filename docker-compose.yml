@@ -6,4 +6,4 @@ services:
     container_name: telegram_bot
     restart: always
     environment:
-      - API_TOKEN=5288548412:AAHpohcHT6s1jRetILVr9vqVqmvACkfXc9o
+      - API_TOKEN=TOKEN
