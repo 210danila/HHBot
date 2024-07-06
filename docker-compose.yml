@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  bot:
+    build: .
+    container_name: telegram_bot
+    restart: always
+    environment:
+      - API_TOKEN=5288548412:AAHpohcHT6s1jRetILVr9vqVqmvACkfXc9o
