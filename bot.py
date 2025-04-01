@@ -8,7 +8,7 @@ from aiogram.types import Message
 
 from api import parse_vacancies, save_data_to_db
 
-API_TOKEN = os.getenv('API_TOKEN')
+API_TOKEN = '5850207743:AAHs9Nj6kNGnCrkHpouGmn5WLNnDRrFvrwY'#os.getenv('API_TOKEN')
 
 # Настройка логирования
 logging.basicConfig(level=logging.INFO)

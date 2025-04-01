@@ -23,7 +23,6 @@ def parse_vacancies(text, salary, employment, experience):
     response = requests.get(url, params=params)
     vacancies = response.json().get('items', [])
     print(vacancies)
-    # return
 
     result = []
     for vacancy in vacancies:
@@ -57,10 +56,14 @@ def save_data_to_db(data):
     db = get_db()
     cursor = db.cursor()
     for item in data:
-        cursor.execute(
-            "INSERT INTO vacancies (vacancy_id, name, schedule, employment, city, experience, salary) VALUES (?, ?, ?, ?, ?, ?, ?)",
-            item
-        )
+        try:
+            cursor.execute(
+                "INSERT INTO vacancies (vacancy_id, name, schedule, employment, city, experience, salary) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                item
+            )
+        except sqlite3.IntegrityError:
+            #  Если запись уже добавлена в базу, пропускаем
+            continue
     db.commit()
     cursor.close()
     db.close()

@@ -13,5 +13,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Команда для создания базы данных
 RUN python database.py
 
+# Создаём базу данных перед запуском
+RUN python init_db.py
+
 # Команда для запуска бота
 CMD ["python", "bot.py"]
